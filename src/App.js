@@ -8,7 +8,7 @@ import SubmitForm from "./routers/SubmitForm";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <TopNavigator />
       <Route path="/" exact={true} component={About} />
       <Route path="/TodoList" component={TodoList} />
