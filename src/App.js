@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, HashRouter, Route} from "react-router-dom";
+import {HashRouter, Route} from "react-router-dom";
 import TopNavigator from "./routers/TopNavigator";
 import TodoList from "./routers/TodoList";
 import About from "./routers/About";
