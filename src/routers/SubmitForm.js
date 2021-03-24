@@ -1,12 +1,13 @@
 import React from "react";
 import { useInput } from "../hooks/formInput";
+import menuStyle from "./SideNavigator.module.css";
 
 function SubmitForm() {
 
     const name = useInput("");
 
     return (
-        <div>
+        <div className={menuStyle.main}>
             <h3>Form 의 각 value 를 유효성 검사를 하고 submit. (미완성. 데이터는 어디에도 저장되지 않습니다.)</h3>
             <form>
                 <div>

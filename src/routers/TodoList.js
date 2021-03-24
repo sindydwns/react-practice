@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { uuid } from "uuidv4";
 import {useInput} from "../hooks/formInput";
+import menuStyle from "./SideNavigator.module.css";
 
 function Todo({value, deleteHandler}){
 
@@ -77,7 +78,7 @@ function TodoList(){
 function PracticeTodo(){
 
     return (
-        <div className="PracticeTodo">
+        <div className={menuStyle.main}>
             <h3>할 일 목록을 관리할 수 있습니다. (데이터는 어디에도 저장되지 않습니다.)</h3>
             <TodoList />
         </div>

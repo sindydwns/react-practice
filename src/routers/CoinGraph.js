@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {Line} from "react-chartjs-2";
+import menuStyle from "./SideNavigator.module.css";
 
 async function loadCoinData(market){
     return await fetch(`https://api.upbit.com/v1/candles/minutes/1?market=${market}&count=200`)
@@ -32,7 +33,7 @@ function CoinGraph(){
     }, [market]);
 
     return (
-        <div className="CoinGraph">
+        <div className={menuStyle.main}>
             <h3>가상화폐 거래소에서 최근 200분의 거래정보를 가져와 그래프로 출력합니다. </h3>
             <span>가상화폐를 선택 : </span>
             <select value={market} onChange={e => setMarket(e.target.value)}>
