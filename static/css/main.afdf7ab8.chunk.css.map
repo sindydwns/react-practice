@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/routers/TopNavigator.css"],"names":[],"mappings":"AAAA,aACI,iBACJ,CAEA,cACI,kBACJ","file":"main.afdf7ab8.chunk.css","sourcesContent":[".Navigator a {\r\n    margin-right: 10px;\r\n}\r\n\r\ndiv.Navigator{\r\n    margin-bottom: 10px;\r\n}"]}
