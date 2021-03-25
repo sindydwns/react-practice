@@ -8,6 +8,7 @@ function Navigator(){
             <Link to="/">About</Link>
             <Link to="/TodoList">TodoList</Link>
             <Link to="/CoinGraph">CoinGraph</Link>
+            <Link to="/MultiCoinGraph">MultiCoinGraph</Link>
             <Link to="/SubmitForm">SubmitForm</Link>
         </div>
     )

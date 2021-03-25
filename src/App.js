@@ -4,6 +4,7 @@ import SideNavigator from "./routers/SideNavigator";
 import TodoList from "./routers/TodoList";
 import About from "./routers/About";
 import CoinGraph from "./routers/CoinGraph";
+import MultiCoinGraph from "./routers/MultiCoinGraph";
 import SubmitForm from "./routers/SubmitForm";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Route path="/" exact={true} component={About} />
       <Route path="/TodoList" component={TodoList} />
       <Route path="/CoinGraph" component={CoinGraph} />
+      <Route path="/MultiCoinGraph" component={MultiCoinGraph} />
       <Route path="/SubmitForm" component={SubmitForm} />
     </HashRouter>
   );
