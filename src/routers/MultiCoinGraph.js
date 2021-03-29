@@ -14,6 +14,8 @@ function MiniLineChart({data, name}){
     values = (values.datasets) || [];
     values = (values[0]) || [];
     values = (values.data) || [];
+    const currentPrice = values[values.length - 1];
+    console.log(currentPrice);
     const max = Math.max(...values);
     const min = Math.min(...values);
     const percent = Math.round((max / min - 1) * 10000) / 100;
@@ -32,7 +34,7 @@ function MiniLineChart({data, name}){
     return (
         <div>
             <Line width={160} height={90} data={data} options={option}/>
-            <span>{name} : {percent}%</span>
+            <span>{name} {currentPrice} : {percent}%</span>
         </div>
     )
 }
@@ -47,13 +49,14 @@ function MultiCoinGraph(){
         const interval = setInterval(async() => {
             if (coinArr.length === 0) return;
             const coin = coinArr[index];
-            const data = await loadCoinData("KRW-" + coin, 60)
+            const data = await loadCoinData("KRW-" + coin, 60);
+            const reversedData = data.reverse();
             if(!data.error) {
                 const newData = {datasets:[]}
-                newData.labels = data.reverse().map(x => new Date(x.candle_date_time_kst));
+                newData.labels = reversedData.map(x => new Date(x.candle_date_time_kst));
                 newData.datasets.push({
                     label:"Trade Price",
-                    data:data.reverse().map(x=>x.trade_price),
+                    data:reversedData.map(x=>x.trade_price),
                     backgroundColor:"rgba(0,0,0,0.1)",
                 });
                 const a = datas.map(x => x);
