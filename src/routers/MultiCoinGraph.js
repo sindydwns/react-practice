@@ -61,7 +61,7 @@ function MultiCoinGraph(){
                 setDatas(a)
             }
             setIndex(index + 1 >= coinArr.length ? 0 : index + 1)
-        }, 120);
+        }, 200);
         return () => clearInterval(interval);
     }, [coinArr, index, datas])
 
