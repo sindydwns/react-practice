@@ -40,7 +40,7 @@ function MiniLineChart({data, name}){
 
 function MultiCoinGraph(){
 
-    const [coinArr] = useState(["PCI", "DKA", "ETH", "NPXS", "BTC", "BTT", "MVL", "XRP"]);
+    const [coinArr] = useState(["PCI", "DKA", "ETH", "NPXS", "BTC", "BTT", "MVL", "XRP", "XEM", "CRO"]);
     const [index, setIndex] = useState(0);
     const [datas, setDatas] = useState(coinArr.map(_ => ({})));
 
