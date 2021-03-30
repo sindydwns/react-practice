@@ -15,7 +15,6 @@ function MiniLineChart({data, name}){
     values = (values[0]) || [];
     values = (values.data) || [];
     const currentPrice = values[values.length - 1];
-    console.log(currentPrice);
     const max = Math.max(...values);
     const min = Math.min(...values);
     const percent = Math.round((max / min - 1) * 10000) / 100;
