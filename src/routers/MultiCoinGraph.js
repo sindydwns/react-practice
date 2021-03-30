@@ -32,7 +32,7 @@ function MiniLineChart({data, name}){
 
     return (
         <div>
-            <Line width={160} height={90} data={data} options={option}/>
+            <Line width={144} height={81} data={data} options={option}/>
             <span>{name} {currentPrice} : {percent}%</span>
         </div>
     )
@@ -40,7 +40,7 @@ function MiniLineChart({data, name}){
 
 function MultiCoinGraph(){
 
-    const [coinArr] = useState(["PCI", "DKA", "ETH", "NPXS", "BTC", "BTT", "MVL", "XRP", "XEM", "CRO"]);
+    const [coinArr] = useState(["PCI", "DKA", "ETH", "NPXS", "BTC", "XRP", "XEM", "CRO"]);
     const [index, setIndex] = useState(0);
     const [datas, setDatas] = useState(coinArr.map(_ => ({})));
 

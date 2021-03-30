@@ -1,8 +1,9 @@
 .flex {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .flex canvas {
-    margin:10px
+    margin-right:5px
 }
