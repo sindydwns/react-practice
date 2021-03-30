@@ -1,17 +1,29 @@
-import React from "react"
+import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import menuStyle from "./SideNavigator.module.css"
 
-function Navigator(){
+function SideNavigator(){
+
+    const maxWidth = 300;
+    const ref = useRef();
+
+    const closeMenu = () => ref.current.style.width = 0;
+    const openMenu = () => ref.current.style.width = maxWidth + "px";
+
     return (
-        <div className={menuStyle.menu}>
-            <Link to="/">About</Link>
-            <Link to="/TodoList">TodoList</Link>
-            <Link to="/CoinGraph">CoinGraph</Link>
-            <Link to="/MultiCoinGraph">MultiCoinGraph</Link>
-            <Link to="/SubmitForm">SubmitForm</Link>
-        </div>
+        <>
+            <div className={menuStyle.top}>
+                <div onClick={openMenu}>Menu</div>
+            </div>
+            <div ref={ref} className={menuStyle.menu} style={{width:0}}>
+                <Link to="/" onClick={closeMenu}>About</Link>
+                <Link to="/TodoList" onClick={closeMenu}>TodoList</Link>
+                <Link to="/CoinGraph" onClick={closeMenu}>CoinGraph</Link>
+                <Link to="/MultiCoinGraph" onClick={closeMenu}>MultiCoinGraph</Link>
+                <Link to="/SubmitForm" onClick={closeMenu}>SubmitForm</Link>
+            </div>
+        </>
     )
 }
 
-export default Navigator;
+export default SideNavigator;
