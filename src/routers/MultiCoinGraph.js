@@ -4,7 +4,7 @@ import menuStyle from "./SideNavigator.module.css";
 import style from "./MultiCoinGraph.module.css";
 
 async function loadCoinData(market, amount){
-    return await fetch(`https://api.upbit.com/v1/candles/minutes/1?market=${market}&count=${amount}`)
+    return await fetch(`https://api.upbit.com/v1/candles/minutes/60?market=${market}&count=${amount}`)
         .then(x => x.json());
 }
 
