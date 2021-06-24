@@ -12,16 +12,16 @@ function SubmitForm() {
             <form>
                 <div>
                     <span>이름 : </span>
-                    <input {...name} name="userName"/>
+                    <input {...name} name="userName" />
                 </div>
                 <div>
                     <span>성별 : </span>
-                    <input id="male" type="radio" name="gender"/><label id="male">남</label>
-                    <input id="female" type="radio" name="gender"/><label id="female">여</label>
+                    <input id="male" type="radio" name="gender" /><label id="male">남</label>
+                    <input id="female" type="radio" name="gender" /><label id="female">여</label>
                 </div>
                 <div>
                     <span>사진 : </span>
-                    <input type="file"/>
+                    <input type="file" />
                 </div>
                 <div>
                     <span>이메일 : </span>

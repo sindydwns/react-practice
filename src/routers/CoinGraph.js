@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
-import {Line} from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import menuStyle from "./SideNavigator.module.css";
 
-async function loadCoinData(market){
+async function loadCoinData(market) {
     return await fetch(`https://api.upbit.com/v1/candles/minutes/1?market=${market}&count=200`)
         .then(x => x.json());
 }
 
-function CoinGraph(){
+function CoinGraph() {
 
     const [market, setMarket] = useState("KRW-BTC");
     const [data, setData] = useState({});
     const [option] = useState({
         responsive: false,
         // legend: {display:false},
-        scales:{xAxes:[{ticks:{display:false}}]},
-        elements: {line: {tension: 0}},
+        scales: { xAxes: [{ ticks: { display: false } }] },
+        elements: { line: { tension: 0 } },
     });
 
     useEffect(() => {
-        loadCoinData(market).then(values =>{
+        loadCoinData(market).then(values => {
             values = values.reverse();
-            const newData = {datasets:[]}
+            const newData = { datasets: [] }
             newData.labels = values.map(x => new Date(x.candle_date_time_kst));
             newData.datasets.push({
-                label:"Trade Price",
-                data:values.map(x => x.trade_price),
-                backgroundColor:"rgba(0,0,0,0.1)",
+                label: "Trade Price",
+                data: values.map(x => x.trade_price),
+                backgroundColor: "rgba(0,0,0,0.1)",
             });
             setData(newData);
         });
@@ -42,7 +42,7 @@ function CoinGraph(){
                 <option value="KRW-PCI">페이코인</option>
             </select>
             <div>
-                <Line width={1000} height={500} data={data} options={option}/>
+                <Line width={1000} height={500} data={data} options={option} />
             </div>
         </div>
     )

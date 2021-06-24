@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import { Link } from "react-router-dom";
 import menuStyle from "./SideNavigator.module.css"
 
-function SideNavigator(){
+function SideNavigator() {
 
     const maxWidth = 300;
     const ref = useRef();
@@ -15,7 +15,7 @@ function SideNavigator(){
             <div className={menuStyle.top}>
                 <div onClick={openMenu}>Menu</div>
             </div>
-            <div ref={ref} className={menuStyle.menu} style={{width:0}}>
+            <div ref={ref} className={menuStyle.menu} style={{ width: 0 }}>
                 <Link to="/" onClick={closeMenu}>About</Link>
                 <Link to="/TodoList" onClick={closeMenu}>TodoList</Link>
                 <Link to="/CoinGraph" onClick={closeMenu}>CoinGraph</Link>

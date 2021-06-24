@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { uuid } from "uuidv4";
-import {useInput} from "../hooks/formInput";
+import { useInput } from "../hooks/formInput";
 import menuStyle from "./SideNavigator.module.css";
 
-function Todo({value, deleteHandler}){
+function Todo({ value, deleteHandler }) {
 
     const [isEditable, setEditable] = useState(false);
-    const {attr : text} = useInput(value.text);
+    const { attr: text } = useInput(value.text);
 
     const enterKeyEvent = e => {
-        if(e.key === "Enter"){
+        if (e.key === "Enter") {
             console.log(isEditable);
-            if(text.value === ""){
+            if (text.value === "") {
                 deleteHandler();
             }
             else {
@@ -24,32 +24,32 @@ function Todo({value, deleteHandler}){
         <div>
             <button onClick={deleteHandler}>x</button>
             {
-                isEditable ? 
-                <input 
-                    {...text}
-                    onKeyPress={enterKeyEvent}
-                    onBlur={()=>setEditable(false)}
-                    autoFocus={true}>
-                </input>:
-                <span onClick={()=>setEditable(true)}>{text.value}</span>
+                isEditable ?
+                    <input
+                        {...text}
+                        onKeyPress={enterKeyEvent}
+                        onBlur={() => setEditable(false)}
+                        autoFocus={true}>
+                    </input> :
+                    <span onClick={() => setEditable(true)}>{text.value}</span>
             }
         </div>
     )
 }
 
-function TodoList(){
+function TodoList() {
 
     const [text, setText] = useState("");
     const [todoList, setTodoList] = useState({});
 
     const appendHandler = () => {
-        const todo = {key:uuid(), text:text};
+        const todo = { key: uuid(), text: text };
         appendTodoList(todo);
         setText("");
     }
     const appendTodoList = (todo) => {
         const key = todo.key;
-        setTodoList({...todoList, [key]:todo});
+        setTodoList({ ...todoList, [key]: todo });
     };
     const deleteTodoList = (todo) => {
         const copiedList = Object.assign({}, todoList);
@@ -57,7 +57,7 @@ function TodoList(){
         setTodoList(copiedList);
     };
     const enterKeyEvent = (e) => {
-        if(e.key === "Enter" && text !== ""){
+        if (e.key === "Enter" && text !== "") {
             appendHandler();
         }
     }
@@ -66,7 +66,7 @@ function TodoList(){
         <div>
             <input value={text} onChange={x => setText(x.target.value)} onKeyPress={enterKeyEvent}></input>
             <button onClick={appendHandler}>+</button>
-            {Object.values(todoList).map((x) => <Todo 
+            {Object.values(todoList).map((x) => <Todo
                 key={x.key}
                 value={x}
                 deleteHandler={() => deleteTodoList(x)}
@@ -75,7 +75,7 @@ function TodoList(){
     )
 }
 
-function PracticeTodo(){
+function PracticeTodo() {
 
     return (
         <div className={menuStyle.main}>
