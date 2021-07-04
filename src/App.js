@@ -11,7 +11,7 @@ function App() {
     return (
         <HashRouter >
             <SideNavigator />
-            <Route path="/" exact={true} component={About} />
+            <Route path="/" exact component={About} />
             <Route path="/TodoList" component={TodoList} />
             <Route path="/CoinGraph" component={CoinGraph} />
             <Route path="/MultiCoinGraph" component={MultiCoinGraph} />
